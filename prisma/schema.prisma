@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id           String    @id @default(uuid())
+  email        String    @unique
+  name         String
+  passwordHash String?   @map("password_hash")
+  googleId     String?   @unique @map("google_id")
+  createdAt    DateTime  @default(now()) @map("created_at")
+  photos       Photo[]
+  comments     Comment[]
+
+  @@map("users")
+}
+
+model Photo {
+  id        String    @id @default(uuid())
+  userId    String    @map("user_id")
+  url       String
+  caption   String?
+  createdAt DateTime  @default(now()) @map("created_at")
+  user      User      @relation(fields: [userId], references: [id])
+  comments  Comment[]
+
+  @@map("photos")
+}
+
+model Comment {
+  id        String   @id @default(uuid())
+  photoId   String   @map("photo_id")
+  userId    String   @map("user_id")
+  content   String
+  createdAt DateTime @default(now()) @map("created_at")
+  photo     Photo    @relation(fields: [photoId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
+
+  @@map("comments")
+}
