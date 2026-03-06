@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "skills": {
+    "backend-development": {
+      "source": "mrgoonie/claudekit-skills",
+      "sourceType": "github",
+      "computedHash": "19a6a72ddb96062c3edef801451bd721726dd571f7db221f0b4d83ad70aad114"
+    },
+    "backend-to-frontend-handoff-docs": {
+      "source": "davila7/claude-code-templates",
+      "sourceType": "github",
+      "computedHash": "d8c8af8cf6219c60b8cfc6da908dbe70e8aa7c387cef13bb490118ac493b5efd"
+    },
+    "nestjs-expert": {
+      "source": "davila7/claude-code-templates",
+      "sourceType": "github",
+      "computedHash": "b91002edd4185903da7cf00251947f43022723b4962ef7d0cff007025a2dbb45"
+    }
+  }
+}
